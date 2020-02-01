@@ -1,11 +1,12 @@
-import React from 'react';
-import { Image } from 'react-native';
-import { AppLoading } from 'expo';
-import { Asset } from 'expo-asset';
-import { Block, GalioProvider } from 'galio-framework';
+import React from "react";
+import { Image } from "react-native";
+import { AppLoading } from "expo";
+import { Asset } from "expo-asset";
+import { Block, GalioProvider } from "galio-framework";
 
-import Screens from './navigation/Screens';
-import { Images, articles, argonTheme } from './constants';
+import Screens from "./navigation/Screens";
+import { Images, articles, argonTheme } from "./constants";
+import AppContainer from "./navigation/Screens";
 
 // cache app images
 const assetImages = [
@@ -23,7 +24,7 @@ articles.map(article => assetImages.push(article.image));
 
 function cacheImages(images) {
   return images.map(image => {
-    if (typeof image === 'string') {
+    if (typeof image === "string") {
       return Image.prefetch(image);
     } else {
       return Asset.fromModule(image).downloadAsync();
@@ -33,11 +34,11 @@ function cacheImages(images) {
 
 export default class App extends React.Component {
   state = {
-    isLoadingComplete: false,
-  }
-  
+    isLoadingComplete: false
+  };
+
   render() {
-    if(!this.state.isLoadingComplete) {
+    if (!this.state.isLoadingComplete) {
       return (
         <AppLoading
           startAsync={this._loadResourcesAsync}
@@ -57,9 +58,7 @@ export default class App extends React.Component {
   }
 
   _loadResourcesAsync = async () => {
-    return Promise.all([
-      ...cacheImages(assetImages),
-    ]);
+    return Promise.all([...cacheImages(assetImages)]);
   };
 
   _handleLoadingError = error => {
@@ -71,5 +70,4 @@ export default class App extends React.Component {
   _handleFinishLoading = () => {
     this.setState({ isLoadingComplete: true });
   };
-
 }

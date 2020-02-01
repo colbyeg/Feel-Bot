@@ -10,12 +10,15 @@ import { Block } from "galio-framework";
 
 // screens
 import Home from "../screens/Home";
-import Onboarding from "../screens/Onboarding";
-import Pro from "../screens/Pro";
-import Profile from "../screens/Profile";
-import Register from "../screens/Register";
-import Elements from "../screens/Elements";
-import Articles from "../screens/Articles";
+// import Onboarding from "../screens/Onboarding";
+// import Pro from "../screens/Pro";
+// import Profile from "../screens/Profile";
+// import Register from "../screens/Register";
+// import Elements from "../screens/Elements";
+// import Articles from "../screens/Articles";
+import LocalResources from "../screens/LocalResources";
+import Map from "../screens/Map";
+import TalkToUs from "../screens/TalkToUs";
 // drawer
 import Menu from "./Menu";
 import DrawerItem from "../components/DrawerItem";
@@ -61,86 +64,126 @@ const transitionConfig = (transitionProps, prevTransitionProps) => ({
   }
 });
 
-const ElementsStack = createStackNavigator({
-  Elements: {
-    screen: Elements,
+// const ElementsStack = createStackNavigator(
+//   {
+//     Elements: {
+//       screen: Elements,
+//       navigationOptions: ({ navigation }) => ({
+//         header: <Header title="Elements" navigation={navigation} />
+//       })
+//     }
+//   },
+//   {
+//     cardStyle: {
+//       backgroundColor: "#F8F9FE"
+//     },
+//     transitionConfig
+//   }
+// );
+
+// const ArticlesStack = createStackNavigator(
+//   {
+//     Articles: {
+//       screen: Articles,
+//       navigationOptions: ({ navigation }) => ({
+//         header: <Header title="Articles" navigation={navigation} />
+//       })
+//     }
+//   },
+//   {
+//     cardStyle: {
+//       backgroundColor: "#F8F9FE"
+//     },
+//     transitionConfig
+//   }
+// );
+
+// const ProfileStack = createStackNavigator(
+//   {
+//     Profile: {
+//       screen: Profile,
+//       navigationOptions: ({ navigation }) => ({
+//         header: (
+//           <Header
+//             white
+//             transparent
+//             title="Profile"
+//             iconColor={"#FFF"}
+//             navigation={navigation}
+//           />
+//         ),
+//         headerTransparent: true
+//       })
+//     }
+//   },
+//   {
+//     cardStyle: { backgroundColor: "#FFFFFF" },
+//     transitionConfig
+//   }
+// );
+const LocalResourcesStack = createStackNavigator({
+  LocalResources: {
+    screen: LocalResources,
     navigationOptions: ({ navigation }) => ({
-      header: <Header title="Elements" navigation={navigation} />
+      header: <Header title="Local Resources" navigation={navigation} />
     })
   }
-},{
-  cardStyle: {
-    backgroundColor: "#F8F9FE"
-  },
-  transitionConfig
 });
 
-const ArticlesStack = createStackNavigator({
-  Articles: {
-    screen: Articles,
+const MapStack = createStackNavigator({
+  Map: {
+    screen: Map,
     navigationOptions: ({ navigation }) => ({
-      header: <Header title="Articles" navigation={navigation} />
+      header: <Header title="Map" navigation={navigation} />
     })
   }
-},{
-  cardStyle: {
-    backgroundColor: "#F8F9FE"
-  },
-  transitionConfig
 });
-
-const ProfileStack = createStackNavigator(
-  {
-    Profile: {
-      screen: Profile,
-      navigationOptions: ({ navigation }) => ({
-        header: (
-          <Header white transparent title="Profile" iconColor={'#FFF'} navigation={navigation} />
-        ),
-        headerTransparent: true
-      })
-    }
-  },
-  {
-    cardStyle: { backgroundColor: "#FFFFFF" },
-    transitionConfig
+const TalkToUsStack = createStackNavigator({
+  TalkToUs: {
+    screen: TalkToUs,
+    navigationOptions: ({ navigation }) => ({
+      header: <Header title="Talk To Us!" navigation={navigation} />
+    })
   }
-);
-
-const HomeStack = createStackNavigator(
-  {
-    Home: {
-      screen: Home,
-      navigationOptions: ({ navigation }) => ({
-        header: <Header search options title="Home" navigation={navigation} />
-      })
-    },
-    Pro: {
-      screen: Pro,
-      navigationOptions: ({ navigation }) => ({
-        header: (
-          <Header left={<Block />} white transparent title="" navigation={navigation} />
-        ),
-        headerTransparent: true
-      })
-    }
-  },
-  {
-    cardStyle: {
-      backgroundColor: "#F8F9FE"
-    },
-    transitionConfig
+});
+const HomeStack = createStackNavigator({
+  Home: {
+    screen: Home,
+    navigationOptions: ({ navigation }) => ({
+      header: <Header title="Home" navigation={navigation} />
+    })
   }
-);
+  //   Pro: {
+  //     screen: Pro,
+  //     navigationOptions: ({ navigation }) => ({
+  //       header: (
+  //         <Header
+  //           left={<Block />}
+  //           white
+  //           transparent
+  //           title=""
+  //           navigation={navigation}
+  //         />
+  //       ),
+  //       headerTransparent: true
+  //     })
+  //   }
+  // },
+  // {
+  // cardStyle: {
+  //   backgroundColor: "#F8F9FE"
+  // },
+  // transitionConfig
+});
 // divideru se baga ca si cum ar fi un ecrna dar nu-i nimic duh
 const AppStack = createDrawerNavigator(
   {
-    Onboarding: {
-      screen: Onboarding,
-      navigationOptions: {
-        drawerLabel: () => {}
-      }
-    },
+    // Onboarding: {
+    //   screen: Onboarding,
+    //   navigationOptions: {
+    //     drawerLabel: () => {}
+    //   }
+    // },
     Home: {
       screen: HomeStack,
       navigationOptions: navOpt => ({
@@ -149,35 +192,67 @@ const AppStack = createDrawerNavigator(
         )
       })
     },
-    Profile: {
-      screen: ProfileStack,
+    // Profile: {
+    //   screen: ProfileStack,
+    //   navigationOptions: navOpt => ({
+    //     drawerLabel: ({ focused }) => (
+    //       <DrawerItem focused={focused} screen="Profile" title="Profile" />
+    //     )
+    //   })
+    // },
+    // Account: {
+    //   screen: Register,
+    //   navigationOptions: navOpt => ({
+    //     drawerLabel: ({ focused }) => (
+    //       <DrawerItem focused={focused} screen="Register" title="Account" />
+    //     )
+    //   })
+    // },
+    // Elements: {
+    //   screen: ElementsStack,
+    //   navigationOptions: navOpt => ({
+    //     drawerLabel: ({ focused }) => (
+    //       <DrawerItem focused={focused} screen="Elements" title="Elements" />
+    //     )
+    //   })
+    // },
+    // Articles: {
+    //   screen: ArticlesStack,
+    //   navigationOptions: navOpt => ({
+    //     drawerLabel: ({ focused }) => (
+    //       <DrawerItem focused={focused} screen="Articles" title="Articles" />
+    //     )
+    //   })
+    // },
+    LocalResources: {
+      screen: LocalResourcesStack,
       navigationOptions: navOpt => ({
         drawerLabel: ({ focused }) => (
-          <DrawerItem focused={focused} screen="Profile" title="Profile" />
+          <DrawerItem
+            focused={focused}
+            screen="Local Resources"
+            title="Local Resources"
+          />
         )
       })
     },
-    Account: {
-      screen: Register,
+    Map: {
+      screen: MapStack,
       navigationOptions: navOpt => ({
         drawerLabel: ({ focused }) => (
-          <DrawerItem focused={focused} screen="Register" title="Account" />
+          <DrawerItem focused={focused} screen="Map" title="Map" />
         )
       })
     },
-    Elements: {
-      screen: ElementsStack,
+    TalkToUs: {
+      screen: TalkToUsStack,
       navigationOptions: navOpt => ({
         drawerLabel: ({ focused }) => (
-          <DrawerItem focused={focused} screen="Elements" title="Elements" />
-        )
-      })
-    },
-    Articles: {
-      screen: ArticlesStack,
-      navigationOptions: navOpt => ({
-        drawerLabel: ({ focused }) => (
-          <DrawerItem focused={focused} screen="Articles" title="Articles" />
+          <DrawerItem
+            focused={focused}
+            screen="Talk To Us"
+            title="Talk To Us"
+          />
         )
       })
     }

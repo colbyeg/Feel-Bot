@@ -1,9 +1,12 @@
-import { womanchatting } from "./Images";
+import React from "react";
+import Image from "react-native";
+import Images from "./Images";
 
 export default [
   {
     title: "Feeling Down? Chat with Our FeelBot",
-    image: "womanchatting",
+    image:
+      "https://images.unsplash.com/photo-1519368358672-25b03afee3bf?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2004&q=80",
     cta: "View article",
     horizontal: true
   },
