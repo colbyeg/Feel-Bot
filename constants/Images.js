@@ -9,6 +9,7 @@ const ArgonLogo = require("../assets/imgs/argonlogo.png");
 const iOSLogo = require("../assets/imgs/ios.png");
 const androidLogo = require("../assets/imgs/android.png");
 const womanchatting = require("../assets/imgs/womanchat.jpg");
+const Actualogo = require("../assets/imgs/mmlogo.png");
 // internet imgs
 
 const ProfilePicture =
@@ -41,5 +42,6 @@ export default {
   ArgonLogo,
   iOSLogo,
   androidLogo,
-  womanchatting
+  womanchatting,
+  Actualogo
 };

@@ -4,24 +4,19 @@
     "slug": "argon-free-react-native",
     "privacy": "public",
     "sdkVersion": "35.0.0",
-    "platforms": [
-      "ios",
-      "android"
-    ],
+    "platforms": ["ios", "android"],
     "version": "1.3.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/imgs/mmlogo.png",
     "splash": {
-      "image": "./assets/splash.png",
+      "image": "./assets/imgs/bg.png",
       "resizeMode": "cover",
       "backgroundColor": "#ffffff"
     },
     "updates": {
       "fallbackToCacheTimeout": 0
     },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
+    "assetBundlePatterns": ["**/*"],
     "ios": {
       "supportsTablet": true
     }

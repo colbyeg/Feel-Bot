@@ -13,7 +13,7 @@ const Drawer = props => (
     forceInset={{ top: "always", horizontal: "never" }}
   >
     <Block flex={0.05} style={styles.header}>
-      <Image styles={styles.logo} source={Images.Logo} />
+      {<Image styles={styles.logo} source={Images.Actualogo} />}
     </Block>
     <Block flex>
       <ScrollView showsVerticalScrollIndicator={false} style={{ flex: 1 }}>
