@@ -1,37 +1,67 @@
-import React from 'react';
-import { withNavigation } from 'react-navigation';
-import PropTypes from 'prop-types';
-import { StyleSheet, Dimensions, Image, TouchableWithoutFeedback } from 'react-native';
-import { Block, Text, theme } from 'galio-framework';
+import React from "react";
+import { withNavigation } from "react-navigation";
+import PropTypes from "prop-types";
+import {
+  StyleSheet,
+  Dimensions,
+  Image,
+  TouchableWithoutFeedback,
+  Webview,
+  Linking
+} from "react-native";
+import { Block, Text, theme } from "galio-framework";
 
-import { argonTheme } from '../constants';
-
+import { argonTheme } from "../constants";
 
 class Card extends React.Component {
   render() {
-    const { navigation, item, horizontal, full, style, ctaColor, imageStyle } = this.props;
-    
+    const {
+      navigation,
+      item,
+      horizontal,
+      full,
+      style,
+      ctaColor,
+      imageStyle,
+      url
+    } = this.props;
+
     const imageStyles = [
       full ? styles.fullImage : styles.horizontalImage,
       imageStyle
     ];
     const cardContainer = [styles.card, styles.shadow, style];
-    const imgContainer = [styles.imageContainer,
+    const imgContainer = [
+      styles.imageContainer,
       horizontal ? styles.horizontalStyles : styles.verticalStyles,
       styles.shadow
     ];
+    const openURL = url => {
+      Linking.openURL(url).catch(err =>
+        console.error("An error occurred", err)
+      );
+    };
 
     return (
       <Block row={horizontal} card flex style={cardContainer}>
-        <TouchableWithoutFeedback onPress={() => navigation.navigate('Pro')}>
+        <TouchableWithoutFeedback onPress={() => openURL(item.url)}>
           <Block flex style={imgContainer}>
-            <Image source={{uri: item.image}} style={imageStyles} />
+            <Image source={{ uri: item.image }} style={imageStyles} />
           </Block>
         </TouchableWithoutFeedback>
-        <TouchableWithoutFeedback onPress={() => navigation.navigate('Pro')}>
+        <TouchableWithoutFeedback onPress={() => openURL(item.url)}>
           <Block flex space="between" style={styles.cardDescription}>
-            <Text size={14} style={styles.cardTitle}>{item.title}</Text>
-            <Text size={12} muted={!ctaColor} color={ctaColor || argonTheme.COLORS.ACTIVE} bold>{item.cta}</Text>
+            <Text size={14} style={styles.cardTitle}>
+              {item.title}
+            </Text>
+            <Text
+              size={12}
+              muted={!ctaColor}
+              color={ctaColor || argonTheme.COLORS.ACTIVE}
+              bold
+            >
+              {item.cta}
+            </Text>
           </Block>
         </TouchableWithoutFeedback>
       </Block>
@@ -45,7 +75,8 @@ Card.propTypes = {
   full: PropTypes.bool,
   ctaColor: PropTypes.string,
   imageStyle: PropTypes.any,
-}
+  url: PropTypes.string
+};
 
 const styles = StyleSheet.create({
   card: {
@@ -57,7 +88,7 @@ const styles = StyleSheet.create({
   },
   cardTitle: {
     flex: 1,
-    flexWrap: 'wrap',
+    flexWrap: "wrap",
     paddingBottom: 6
   },
   cardDescription: {
@@ -66,18 +97,18 @@ const styles = StyleSheet.create({
   imageContainer: {
     borderRadius: 3,
     elevation: 1,
-    overflow: 'hidden',
+    overflow: "hidden"
   },
   image: {
     // borderRadius: 3,
   },
   horizontalImage: {
     height: 122,
-    width: 'auto',
+    width: "auto"
   },
   horizontalStyles: {
     borderTopRightRadius: 0,
-    borderBottomRightRadius: 0,
+    borderBottomRightRadius: 0
   },
   verticalStyles: {
     borderBottomRightRadius: 0,
@@ -91,8 +122,8 @@ const styles = StyleSheet.create({
     shadowOffset: { width: 0, height: 2 },
     shadowRadius: 4,
     shadowOpacity: 0.1,
-    elevation: 2,
-  },
+    elevation: 2
+  }
 });
 
 export default withNavigation(Card);

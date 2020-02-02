@@ -13,34 +13,34 @@ class DrawerItem extends React.Component {
       case "Home":
         return (
           <Icon
-            name="shop"
+            name="spaceship"
             family="ArgonExtra"
             size={10}
             color={focused ? "white" : argonTheme.COLORS.PRIMARY}
           />
         );
-      case "Elements":
+      case "Local Resources":
         return (
           <Icon
-            name="map-big"
+            name="support"
             family="ArgonExtra"
             size={12}
             color={focused ? "white" : argonTheme.COLORS.ERROR}
           />
         );
-      case "Articles":
+      case "Map":
         return (
           <Icon
-            name="spaceship"
+            name="map-big"
             family="ArgonExtra"
             size={12}
             color={focused ? "white" : argonTheme.COLORS.PRIMARY}
           />
         );
-      case "Profile":
+      case "Talk To Us":
         return (
           <Icon
-            name="chart-pie-35"
+            name="bell"
             family="ArgonExtra"
             size={12}
             color={focused ? "white" : argonTheme.COLORS.WARNING}

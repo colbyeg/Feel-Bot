@@ -14,11 +14,12 @@ class Home extends React.Component {
       >
         <Block flex>
           <View>
-            <Text>
-              Welcome to Our App! Here you, can find tips on managing your
-              mental health. Go to the menu to talk anonymously to a
-              professional, or find resources in your area. If no one is
-              available to chat, you can talk to our FeelBot.
+            <Text style={styles.title}> Welcome to Mindfulness Manager</Text>
+            <Text style={styles.box}>
+              Here you can find tips on managing your mental health. Go to the
+              menu to talk anonymously to a professional, or find resources in
+              your area. If no one is available to chat, you can talk to our
+              FeelBot.
             </Text>
           </View>
         </Block>
@@ -48,6 +49,11 @@ class Home extends React.Component {
 }
 
 const styles = StyleSheet.create({
+  title: {
+    fontSize: 20,
+    fontWeight: "bold",
+    padding: 5
+  },
   home: {
     width: width
   },
@@ -58,7 +64,10 @@ const styles = StyleSheet.create({
   box: {
     borderWidth: 0,
     minHeight: 114,
-    marginBottom: 16
+    paddingTop: 5,
+    paddingLeft: 5,
+    paddingRight: 5,
+    alignSelf: "center"
   },
   shadow: {
     shadowColor: theme.COLORS.BLACK,
